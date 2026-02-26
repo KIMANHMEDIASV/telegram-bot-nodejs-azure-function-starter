@@ -8,6 +8,7 @@ on:
 #
 # 1. Set up the following secrets in your repository:
 #   AZURE_FUNCTIONAPP_PUBLISH_PROFILE
+#   AZURE_CREDENTIALS
 #
 # 2. Change these variables for your configuration:
 env:
@@ -35,6 +36,11 @@ jobs:
         npm run deploy:function --if-present
         npm run test --if-present
         popd
+
+    - name: 'Login to Azure'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
