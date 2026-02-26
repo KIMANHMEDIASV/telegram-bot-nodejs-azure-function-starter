@@ -4,6 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
+    "test": "echo \"No tests yet\""
     "start": "func start",
     "build": "rimraf ./dist && tsc",
     "watch": "rimraf ./dist && tsc -w --inlineSourceMap",
